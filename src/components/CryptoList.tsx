@@ -19,7 +19,7 @@ const CryptoList: React.FC = () => {
         const { data } = await axios.get<Coin[]>(
           "https://api.coingecko.com/api/v3/coins/markets",
           {
-            params: { vs_currency: "usd", order: "market_cap_desc", per_page: 10 },
+            params: { vs_currency: "usd", order: "market_cap_desc", per_page: 100 },
           }
         );
         setCoins(data);
@@ -32,7 +32,7 @@ const CryptoList: React.FC = () => {
 
   return (
     <div className="p-6 bg-gray-800 rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold text-yellow-400">Top 10 Cryptos</h2>
+      <h2 className="text-xl font-semibold text-yellow-400">Top 100 Cryptos</h2>
       <ul>
         {coins.map((coin) => (
           <li key={coin.id} className="flex justify-between p-2 border-b">
